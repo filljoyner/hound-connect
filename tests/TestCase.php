@@ -1,17 +1,16 @@
 <?php
 
-namespace Nextpack\Nextpack\Tests;
+namespace filljoyner\Hound\Tests;
 
 use PHPUnit_Framework_TestCase as PHPUnit;
 
 /**
  * Class TestCase
  *
- * @author  Mahmoud Zalt  <mahmoud@zalt.me>
+ * @author   Philip Joyner  <@filljoyner>
  */
 class TestCase extends PHPUnit
 {
-
     public function __construct()
     {
         parent::__construct();
@@ -26,5 +25,4 @@ class TestCase extends PHPUnit
     {
         parent::tearDown();
     }
-
 }
