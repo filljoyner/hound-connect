@@ -10,6 +10,7 @@ namespace filljoyner\Hound\Library;
 class HoundIndexDocument
 {
     private $client;
+    private $page_num;
 
     /**
      * @param string $token
@@ -20,8 +21,18 @@ class HoundIndexDocument
     }
 
 
+    public function page($page_num)
+    {
+        $this->page_num = $page_num;
+        return $this;
+    }
+
+
     public function paginate($params=[])
     {
+        if ($this->page_num) {
+            $params['page'] = $this->page_num;
+        }
         return $this->client->get('/api/documents', $params);
     }
 
