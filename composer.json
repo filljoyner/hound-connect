@@ -1,22 +1,21 @@
 {
-  "name": "nextpack/nextpack",
-  "description": "Nextpack is a PHP Packages Framework (Starter Project)",
+  "name": "filljoyner/hound",
+  "description": "Fluent connector to Hound Service",
   "license": "MIT",
   "keywords": [
-    "NextPack",
-    "Starter"
+    "Hound"
   ],
   "authors": [
     {
-      "name": "Mahmoud Zalt",
-      "email": "mahmoud@zalt.me",
-      "homepage": "http://www.zalt.me",
+      "name": "filljoyner",
+      "email": "hello@filljoyner.com",
+      "homepage": "https://filljoyner.com",
       "role": "Coffee Maker :)"
     }
   ],
   "require": {
     "php": ">=5.4.0",
-    "illuminate/config": "5.2.*"
+    "guzzlehttp/guzzle": "^6.3"
   },
   "require-dev": {
     "phpunit/phpunit": "4.*",
@@ -25,13 +24,12 @@
   },
   "autoload": {
     "psr-4": {
-      "Nextpack\\Nextpack\\": "src",
-      "Nextpack\\Library\\": "src/library"
+      "filljoyner\\Hound\\": "src"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Nextpack\\Nextpack\\Tests\\": "tests"
+      "filljoyner\\Hound\\Tests\\": "tests"
     }
   },
   "scripts": {
