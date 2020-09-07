@@ -1,18 +1,13 @@
 <?php
 
-namespace Nextpack\Nextpack\ServiceProviders;
+namespace filljoyner\Hound\ServiceProviders;
 
 use Illuminate\Support\ServiceProvider;
-use Nextpack\Nextpack\Contracts\SampleInterface;
-use Nextpack\Nextpack\Facades\SampleFacadeAccessor;
-use Nextpack\Nextpack\Sample;
+use filljoyner\Hound\Contracts\HoundInterface;
+use filljoyner\Hound\Facades\HoundFacadeAccessor;
+use filljoyner\Hound\Hound;
 
-/**
- * Class NextpackServiceProvider
- *
- * @author  Mahmoud Zalt  <mahmoud@zalt.me>
- */
-class NextpackServiceProvider extends ServiceProvider
+class HoundServiceProvider extends ServiceProvider
 {
 
     /**
@@ -70,36 +65,26 @@ class NextpackServiceProvider extends ServiceProvider
     private function implementationBindings()
     {
         $this->app->bind(
-            SampleInterface::class,
-            Sample::class
+            HoundInterface::class,
+            Hound::class
         );
     }
 
-    /**
-     * Publish the Config file from the Package to the App directory
-     */
-    private function configPublisher()
-    {
-        // When users execute Laravel's vendor:publish command, the config file will be copied to the specified location
-        $this->publishes([
-            __DIR__ . '/Config/nextpack.php' => config_path('nextpack.php'),
-        ]);
-    }
 
     /**
      * Facades Binding
      */
     private function facadeBindings()
     {
-        // Register 'nextpack.say' instance container
-        $this->app['nextpack.sample'] = $this->app->share(function ($app) {
-            return $app->make(Sample::class);
+        // Register 'hound' instance container
+        $this->app['filljoyner.hound'] = $this->app->share(function ($app) {
+            return $app->make(Hound::class);
         });
 
-        // Register 'Sample' Alias, So users don't have to add the Alias to the 'app/config/app.php'
+        // Register 'Hound' Alias, So users don't have to add the Alias to the 'app/config/app.php'
         $this->app->booting(function () {
             $loader = \Illuminate\Foundation\AliasLoader::getInstance();
-            $loader->alias('Sample', SampleFacadeAccessor::class);
+            $loader->alias('Hound', HoundFacadeAccessor::class);
         });
     }
 
@@ -120,5 +105,4 @@ class NextpackServiceProvider extends ServiceProvider
     {
         // $this->app->register('...\...\...');
     }
-
 }
