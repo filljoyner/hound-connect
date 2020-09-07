@@ -1,15 +1,15 @@
 <?php
 
-namespace Nextpack\Nextpack\Facades;
+namespace filljoyner\HoundConnect\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
- * Class SampleFacadeAccessor
+ * Class HoundFacadeAccessor
  *
- * @author  Mahmoud Zalt  <mahmoud@zalt.me>
+ * @author   Philip Joyner  <@filljoyner>
  */
-class SampleFacadeAccessor extends Facade
+class HoundFacadeAccessor extends Facade
 {
 
     /**
@@ -19,6 +19,6 @@ class SampleFacadeAccessor extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return 'nextpack.sample';
+        return 'filljoyner.hound';
     }
 }
