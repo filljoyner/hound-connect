@@ -16,4 +16,4 @@ vendor
 ehthumbs.db
 Thumbs.db
 
-tests/HoundDevEnvCrudTest.php
+tests/HoundDevEnvTest.php
