@@ -10,6 +10,7 @@ namespace filljoyner\Hound\Library;
 class HoundIndexSearch
 {
     private $client;
+    private $page_num;
 
     /**
      * @param string $token
@@ -20,9 +21,19 @@ class HoundIndexSearch
     }
 
 
+    public function page($page_num)
+    {
+        $this->page_num = $page_num;
+        return $this;
+    }
+
+
     public function for($query_string='', $params=[])
     {
         $params['q'] = $query_string;
+        if ($this->page_num) {
+            $params['page'] = $this->page_num;
+        }
         return $this->client->get('/api/search', $params);
     }
 }
