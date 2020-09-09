@@ -76,7 +76,8 @@ class HoundClient
                 'Content-Type' => 'application/json',
                 'Accept' => 'application/json'
             ],
-            'query' => $this->buildQueryParameters($params)
+            'query' => $this->buildQueryParameters($params),
+            'http_errors' => false
         ];
 
         if ($arguments) {
